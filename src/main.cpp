@@ -1,4 +1,4 @@
-/*! \file */ 
+/*! \file */
 /*
  * @file main.cpp
  * @author Copyright (C) 2016 by Tim Fenlon
@@ -6,6 +6,8 @@
  * @brief Description : LinkedList in C++
  ============================================================================
  */
+#include <iostream>
+#include <cstring>
 #include <string>
 
 #include "logging.hpp"
@@ -97,12 +99,12 @@ int main(int argc, char *argv[])
 	/*
 	* Parse Command Line
 	*/
-	for (i = 1; i < argc; i++) {
+	for (i = 1; i < static_cast<size_t>(argc); i++) {
 		printf("argv[%zu] = %s\n", i, argv[i]);
 		if (argv[i][0] == '-') {
 			if (argv[i][1] == 'v')
 			{
-				if (argc >(i + 1)) {
+				if (static_cast<size_t>(argc) >(i + 1)) {
 					menuVersion = atoi(argv[++i]);
 					continue;
 				}
@@ -115,7 +117,7 @@ int main(int argc, char *argv[])
 			else if (argv[i][1] == 'm')
 			{
 				//NOTE: -m or -menu are okay values
-				if (argc > (i + 1)) {
+				if (static_cast<size_t>(argc) > (i + 1)) {
 					i++;
 					memcpy(menuTitle, argv[i], ((strlen(argv[i]) < CLinkedList::MAX_TITLE_LENGTH) ? strlen(argv[i]) : CLinkedList::MAX_TITLE_LENGTH));
 					continue;

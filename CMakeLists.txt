@@ -16,6 +16,10 @@ if(WIN32)
 ADD_DEFINITIONS( -DTARGET_WIN32 )
 elseif(UNIX)#Linux
 ADD_DEFINITIONS(-DTARGET_UNIX=1)
+if(CMAKE_COMPILER_IS_GNUCXX)
+    set(CMAKE_CXX_FLAGS "-std=c++11")        ## Optimize
+    #set(CMAKE_EXE_LINKER_FLAGS "-s")  ## Strip binary
+endif()
 MESSAGE( STATUS "UNIX set : TARGET_UNIX" )
 elseif(APPLE)#OSX
 ADD_DEFINITIONS( -DTARGET_OSX )
@@ -23,7 +27,7 @@ else()
 endif()
 
 
-LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/external/lib 
+LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/external/lib
                  ${PROJECT_SOURCE_DIR}/lib)
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/includes)
 
