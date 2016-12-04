@@ -43,7 +43,7 @@ namespace linked_list_cpp
 		return CLinkedList::mgCLinkedList;
 	}
 
-	CListBase::CListBase(void) 
+	CListBase::CListBase(void)
 	: mNumNodes(0)
 	{
 		mHeadNode.reset();
@@ -88,7 +88,7 @@ namespace linked_list_cpp
 			srand((unsigned)time(&t));
 
 			/* create linked list nodes from zero to iNumNodes */
-			for (size_t i = 0; i < num_choice; i++)
+			for (size_t i = 0; i < static_cast<size_t>(num_choice); i++)
 			{
 				cout << "Adding node[" << i << "]=" << rand() << endl;
 			}
