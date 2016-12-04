@@ -6,6 +6,8 @@
  * @brief Description : LinkedList in C++
  ============================================================================
  */
+#include <iostream>
+#include <cstring>
 #include <string>
 
 #include "logging.hpp"
